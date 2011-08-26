@@ -4,7 +4,7 @@
 <html>
 <title>会员注册</title>
 <link href="../style/reg.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".more_of").toggle(
