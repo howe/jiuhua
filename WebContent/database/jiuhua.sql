@@ -1,4 +1,4 @@
-DROP database IF EXISTS jiuhua;
+﻿DROP database IF EXISTS jiuhua;
 CREATE DATABASE jiuhua
 USE jiuhua;
 
@@ -7,20 +7,21 @@ USE jiuhua;
 -- Table structure for `tb_user` 用户表
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_user`;
-CREATE TABLE `tb_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(30) DEFAULT NULL,
-  `realname` varchar(30) DEFAULT NULL,
-  `idcard` varchar(18) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `mobinum` varchar(21) DEFAULT NULL,
-  `isverify` char(1) DEFAULT NULL COMMENT '手机验证状态: 0未验证/1已验证',
-  `safecode` varchar(255) DEFAULT NULL COMMENT '安全码',
-  `identify` char(1) DEFAULT NULL COMMENT '身份标识: 0管理员/1宾馆/2商户/3旅行社/4导游/5VIP用户/6普通用户',
-  `status` char(1) DEFAULT NULL COMMENT '帐号状态: 0未验证邮箱/1已验证/3已禁止',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+create table tb_user
+(
+   id                   int(11) not null comment '用户表主键',
+   username             varchar(30) comment '用户姓名',
+   realname             varchar(30) comment '用户真实姓名',
+   idcard               varchar(20) comment '用户身份证号',
+   password             varchar(255) comment '用户密码',
+   mobinum              varchar(12) comment '用户手机号码',
+   isverify             char(1) comment '用户手机号码真实性验证状态',
+   email                varchar(100) comment '用户电子邮件',
+   safecode             varchar(255) comment '密码找回使用的密保问题。',
+   identify             char(1) comment '用户账户权限标识，0普通用户/1VIP用户/2管理员',
+   status               char(1) comment '用户账户生命状态，0禁止使用/1正常使用',
+   primary key (id)
+); ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_user
