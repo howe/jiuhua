@@ -21,7 +21,7 @@ create table tb_user
    identify             char(1) comment '用户账户权限标识，0普通用户/1VIP用户/2管理员',
    status               char(1) comment '用户账户生命状态，0禁止使用/1正常使用',
    primary key (id)
-); ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_user
