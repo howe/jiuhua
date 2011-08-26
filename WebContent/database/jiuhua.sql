@@ -9,7 +9,7 @@ USE jiuhua;
 DROP TABLE IF EXISTS `tb_user`;
 create table tb_user
 (
-   id                   int(11) not null comment '用户表主键',
+   id                   int(11) not null AUTO_INCREMENT comment '用户表主键',
    username             varchar(30) comment '用户姓名',
    realname             varchar(30) comment '用户真实姓名',
    idcard               varchar(18) comment '用户身份证号',
