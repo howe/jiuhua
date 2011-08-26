@@ -1,0 +1,262 @@
+﻿html, body, p, ul, li, h1, input, form{margin:0; padding:0;}
+body, input {font:12px Verdana,Arial,Helvetica,sans-serif;}
+body {background:white;}
+ul, li {list-style:none;}
+img {border:none;}
+a {color:#03309D; text-decoration:none;}
+a:hover {text-decoration:underline;}
+.gray {color:#868686;}
+.red {color:red;}
+.f_size{font-size:12px;}
+.b_size {font-size:14px;}
+::-webkit-input-placeholder {color:#8B9096;}
+:-moz-placeholder {color:#8B9096;}
+
+.container {width:860px; margin:20px auto 0; min-height:500px; }
+.mask {position:absolute;z-index:10;left:0;top:0;width:100%;height:100%;background:#FFFFFF;opacity:0.6;filter:alpha(opacity=60);}
+
+/*** 页头 ***/
+.header {height:72px; overflow:hidden; zoom:1;}
+.header .logo {float:left; margin-top:2px; padding-left:16px;}
+.header .header_link {margin:20px 32px 0 221px; padding-right:12px; line-height:30px; text-align:right; color:#CCCCCC; background:#EAF3FF;
+	border-radius:4px; -webkit-border-radius:4px; }
+.header .header_link li {display:inline;}
+.header .header_link a {padding-right:4px;}
+
+/*** 登录提示信息或返回信息 ***/
+.login_msg {padding:8px; margin:-6px 32px 14px 27px; color:#7E4F05; line-height:18px; background:#FFF3C3;
+	border-radius:4px; -webkit-border-radius:4px;}
+.login_msg p {font-size:14px; font-weight:bold;}
+.login_msg ul {margin:6px 0 0 18px;}
+.login_msg li {list-style:disc outside;}
+
+/*** 登录框 ***/
+.login_box {position:relative; z-index:11; float:right; width:305px; /*min-height:285px;*/ margin-right:34px; _margin-right:17px; padding:20px; border:1px solid #ACC3E4; background:#EDF5FF;
+	-moz-box-shadow:2px 2px 3px rgba(0,0,0,0.15); 
+	-webkit-box-shadow:2px 2px 3px rgba(0,0,0,0.15);
+	border-radius:5px; 
+	-webkit-border-radius:5px;}
+.login_box h1 {color:#274571; font-size:16px;}
+.login_box .login_https {text-align:right; margin-top:-16px;}
+.login_box .login_operate {padding:12px 0 20px;}
+.login_operate .username, .login_operate .password, .login_operate .about_password, .login_operate .login_submit {position:relative; width:305px; padding:5px 0; z-index:2\9;}
+.login_operate .login_submit .login_cancel {margin-left:12px;}
+.login_operate .username {height:38px;position:relative;z-index:10;}
+.login_operate .about_password {padding:4px 0; z-index:1\9;}
+.login_operate .vfcodeinput {height:55px; padding-bottom:3px;}
+.login_box .txt {position:relative; width:295px; height:34px; line-height:34px;  padding:0 4px; color:#494949; border:1px solid #9DADC5; font-size:20px; background:transparent; outline:none;
+	border-radius:3px; -webkit-border-radius:3px;
+	-webkit-transition: -webkit-box-shadow .1s linear; 
+	-moz-transition: box-shadow .1s linear;}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.login_box .txt {line-height:normal;}
+}
+.login_box .txt_default, .login_box .txt_dim {position:absolute; top:6px; left:1px; width:289px; height:34px; padding:0 7px; line-height:34px; font-size:14px; color:#8B9096; background:url(../images/login.png) no-repeat scroll -1px -97px white;
+	border-radius:3px; -webkit-border-radius:3px;}
+.login_operate .username_immutable {padding:0; color:#494949; font-weight:bold; background:none; font-size:16px;}
+.login_box .txt_dim {color:#DCDDDF;}
+.login_box .txt:focus {border:1px solid #9bbbda;
+	box-shadow:0 0 5px rgba(110, 189, 222, 0.5); 
+	-webkit-box-shadow:0 0 5px rgba(110, 189, 222, 0.5);}
+.login_box .about_password {padding:4px 0;}
+.login_box .remerber_password {margin-right:4px; margin-left:-4px\9; vertical-align:middle;}
+.login_box .about_password a {position:absolute; right:0; padding-top:4px\9;}
+.login_box .captips {position:absolute; top:43px; left:0; z-index:20; padding:1px; border:1px solid;border-color:#dbc492 #b49366 #b49366 #dbc492;background:#fdf6aa;}
+.login_box .vfcode {margin-top:10px;}
+.login_box .vfcode_img {float:right; padding:5px 0 0;  padding-top:6px\9; text-align:right;}
+.login_box .vfcodeinput {position:relative; float:left; padding:5px 0;}
+.login_box .vfcodeinput input, .login_box .vfcodeinput label {width:148px; height:53px; line-height:53px; letter-spacing:2px; font-size:26px;}
+.login_box .vfcodeinput label {font-size:18px; line-height:52px;width:142px;}
+.login_box .vfcode_img img{width:130px; height:53px; border:1px solid #CFD7E2; vertical-align:top; cursor:pointer;}
+.login_box .verifytip, .login_box .vfcode_change {padding:10px 0 3px;}
+.login_operate .login_submit {clear:both;}
+.login_box .login_btn_wrapper {display:inline-block; width:82px; height:30px; height:28px\9; margin-top:9px; border:1px solid; border-color:#6B9F11 #54850A #386601; background:url(../images/login.png) repeat-x #67A00D; background-position:0 -1px\9;
+	-webkit-transition: -webkit-box-shadow .1s linear; 
+	-moz-transition: box-shadow .1s linear;
+	border-radius:3px; -webkit-border-radius:3px;}
+.login_box .login_btn_wrapper_disabled {display:inline-block; width:82px; height:30px; height:28px\9; margin-top:9px; border:1px solid; border-color:#6B9F11 #54850A #386601; background:url(../images/login.png) repeat-x #67A00D; background-position:0 -1px\9;
+	border-radius:3px; -webkit-border-radius:3px; 
+	opacity:0.7;filter:alpha(opacity=70);
+}
+.login_box .login_btn_wrapper_disabled:hover {text-decoration:none;}
+.login_box .login_btn_wrapper:hover {text-decoration:none; background-position:0 -32px; background-position:0 -33px\9;  
+	box-shadow:0 0 3px rgba(84, 133, 10, 0.5); 
+	-webkit-box-shadow:0 0 3px rgba(84, 133, 10, 0.5);}
+.login_box .login_btn_wrapper:active {background-position:0 -64px;}
+.login_box .login_btn {width:82px; height:30px; height:28px\9; border:none; line-height:25px; font-size:16px; font-weight:bold; color:#FFF; background:transparent;}
+.login_box .login_btn_wrapper_disabled .login_btn{opacity:0.7}
+.login_box .login_tips {padding-top:15px; line-height:18px;}
+.login_box .login_tips p {margin-top:3px;}
+.log-width span{
+	float: left;
+	display: block;
+	width: 100%;
+	margin-bottom: 1px;
+}
+.log-width ul{
+	width: 100%;
+}
+.log-width li{
+	 float: left;
+    margin-bottom: 5px;
+    margin-left: 0;
+    overflow: hidden;
+}
+.log-width li a{
+	float: left;
+	display: block;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	background: url(log-ico.png) left top no-repeat;
+}
+.log-width li a.twitter{
+	background-position: left -126px;
+}
+.log-width li a.facebook{
+	background-position: left -144px;
+}
+.log-width li a.souhu{
+	background-position: left -90px;
+}
+.log-width li a.go163{
+	background-position: left -108px;
+}
+.log-width li a.tx{
+	background-position: left -18px;
+}
+.log-width li a.google{
+	background-position: left -162px;
+}
+.log-width li a.msn{
+	background-position: left -180px;
+}
+.log-width li a.tianya{
+	background-position: left -270px;
+}
+.log-width li a.douban{
+	background-position: left -72px;
+}
+.log-width li a.yahoo{
+	background-position: left -198px;
+}
+.log-width li a.baidu{
+	background-position: left -234px;
+}
+.log-width li a.shengda{
+	background-position: left -218px;
+}
+.log-width li a.kaixin{
+	background-position: left -54px;
+}
+.log-width li a.renren{
+	background-position: left -36px;
+}
+.log-width li a.go360{
+	background-position: left -252px;
+}
+.log-width li a.weibo{
+	background-position: left -306px;
+}
+.log-width li a.qq{
+	background-position: left -289px;
+}
+.log-width li a.alipay{
+	background-position: left -324px;
+}
+.log-width li a.taobao{
+	background-position: left -342px;
+}
+.log-width li a.twitter:hover{
+	background-position: -24px -126px;
+}
+.log-width li a.facebook:hover{
+	background-position: -24px -144px;
+}
+.log-width li a.souhu:hover{
+	background-position: -24px -90px;
+}
+.log-width li a.go163:hover{
+	background-position: -24px -108px;
+}
+.log-width li a.tx:hover{
+	background-position: -24px -18px;
+}
+.log-width li a.google:hover{
+	background-position: -24px -162px;
+}
+.log-width li a.msn:hover{
+	background-position: -24px -180px;
+}
+.log-width li a.tianya:hover{
+	background-position: -24px -270px;
+}
+.log-width li a.douban:hover{
+	background-position: -24px -72px;
+}
+.log-width li a.yahoo:hover{
+	background-position: -24px -198px;
+}
+.log-width li a.baidu:hover{
+	background-position: -24px -234px;
+}
+.log-width li a.shengda:hover{
+	background-position: -24px -218px;
+}
+.log-width li a.kaixin:hover{
+	background-position: -24px -54px;
+}
+.log-width li a.renren:hover{
+	background-position: -24px -36px;
+}
+.log-width li a.go360:hover{
+	background-position: -24px -252px;
+}
+.log-width li a.weibo:hover{
+	background-position: -24px -306px;
+}
+.log-width li a.qq:hover{
+	background-position: -24px -289px;
+}
+.log-width li a.alipay:hover{
+	background-position: -24px -324px;
+}
+.log-width li a.taobao:hover{
+	background-position: -24px -342px;
+}
+.login_box .login_box_msg {margin:12px 0 -4px; color:red;}
+.login_box .noCookie, .login_box .noScript {padding:6px; border:1px solid #FADC80; line-height:1.5; color:black; background:#FFF9E3;}
+/*---- 用户账号输入自动完成 ----*/
+.autocomplete {position:relative; z-index:1; overflow:hidden; margin:1px 0 0 0; border:1px solid #9DADC5; background:#FFFFFF;}
+.auto_item{padding:0 6px; font-size:16px; line-height:28px; background:#FFFFFF;}
+.autocomplete .auto_select{background:#FFF7DB;}
+/*---- 独立密码 ----*/
+.independent_password {min-height:0;}
+.independent_password .login_box_msg {margin-top:6px;}
+.independent_password .login_operate .username {margin-bottom:-10px;}
+/*---- 检测到QQ有登录后的快速登录 ----*/
+.qlogin {padding-top:9px;}
+
+/*** 邮箱推广 ***/
+.mail_advert {height:214px; padding:20px 0 0 32px; overflow:hidden; zoom:1;}
+.mail_advert .advert_pic {float:left;}
+.mail_advert .advert_txt {float:left; margin-top:5px; padding-left:14px;}
+.mail_advert h1 {font-size:16px; line-height:26px; padding-top:5px;}
+.mail_advert p {font-size:14px; line-height:24px;}
+.mail_advert h1 {margin-bottom:6px;}
+.mail_advert p {font-weight:normal;}
+.mail_advert .operate {margin-top:26px;}
+
+/*** 邮箱介绍 ***/
+.mail_intro {width:400px; padding-left:32px; }
+.mail_intro h1{display:none;}
+.mail_intro ul {line-height:20px; }
+.mail_intro ul li {margin-left:12px; list-style:disc outside;}
+
+/*** 页尾 ***/
+.footer {clear:both; padding-top:27px; text-align:center;}
+.footer .footer_link {margin:0 32px 0 28px; line-height:30px; background:#EAF3FF;
+	border-radius:4px; -webkit-border-radius:4px;}
+.footer .footer_link li {display:inline;}
+.footer .footer_link a {padding-right:4px;}
+.footer p {margin:3px 32px 0 16px; line-height:1.5;}

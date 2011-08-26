@@ -1,0 +1,246 @@
+﻿/*Design by ifeiyan*/
+body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,form,input,textarea,button,fieldset,img,legend,ul,ol,li,dl,dt,dd,th,td,div,a {
+	border:0;
+	font-size:100%;
+	margin:0;
+	outline:0;
+	padding:0;
+}
+body{background: #F3FAFD;}
+ul,ol {
+	list-style:none;
+}
+.text {
+    font-family: 'Hiragino Sans GB','Microsoft YaHei',sans-serif;
+}
+.hide{
+	display: none;
+}
+.regwrap{width:978px;margin:50px auto 0;position:relative;}
+.section {
+    background:#fff;
+	overflow:hidden;
+    position: relative;
+}
+.section .sec_top_dark,.section .sec_bot_dark  {
+    display: block;
+    font-size: 0;
+    height: 4px;
+    width: 978px;
+}
+.section .sec_top_dark{background: url(topbg.png) left top no-repeat;}
+.section .sec_bot_dark{background: url(botbg.png) left bottom no-repeat;height:15px;}
+.sec_content {
+	overflow:hidden;
+    border-left: 1px solid #E1E9EE;
+    border-right: 1px solid #E1E9EE;
+    padding: 7px 10px;
+}
+.section .sec_content h2 {
+    border-bottom: 1px solid #E9EDF1;
+    font-size: 16px;
+    font-weight: 400;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 -10px 10px;
+    padding: 0 10px 7px;
+    width: 100%;
+}
+.section .direct_login {
+	font-size:14px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.reg-box {
+	float:left;
+    padding: 30px 0 0 30px;
+}
+.reg-box p {
+    margin: 0 0 30px;
+}
+.reg-box p  label {
+    float: left;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: right;
+    width: 120px;
+	color:#999999;
+}
+.reg-box p .txt_input { width: 250px; font-size: 13px;padding: 6px 5px;border-radius: 3px 3px 3px 3px; background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #CCCCCC;box-shadow: 0 2px 2px #DEDEDE inset;color: #777777; cursor: text;}
+.reg-box p .hint {
+    color: #999999;
+    display: block;
+    font-size: 12px;
+    margin-left: 120px;
+    padding-top: 5px;
+}
+.reg-box p .warning {
+    color: #DD3C10;
+}
+.reg-box p.label,.reg-box div.label {
+    margin-left: 120px;
+}
+.reg-box p.agreement{
+	font-size: 12px;
+}
+button {
+	color:#fff;
+	font-size:12px;
+	text-align:center;
+	line-height:24px;
+	cursor:pointer;
+    background: url(btn.png) left top no-repeat;
+	width:58px;
+	height:24px;
+}
+.unlogin_side {
+	float:right;
+    border-left: 1px dotted #CCCCCC;
+    margin: 30px 25px 0;
+    min-height: 130px;
+    padding: 20px 0 20px 75px;
+    position: relative;
+    width: 220px;
+	vertical-align:middle;
+}
+.unlogin_side h3, .unlogin_side h4 {
+    color: #666666;
+    font-weight: normal;
+    margin: 0 0 25px;
+}
+.unlogin_side .reg_with li {
+    margin: 0 0 20px;
+}
+.unlogin_side .reg_with a, .connect_bind .log_with a {
+    color: #8CA6D7;
+    text-decoration: none;
+}
+#content i.icon {
+	position:relative;
+	top:4px;
+    background: url(icon-big.png) left top no-repeat;
+    display: inline-block;
+    height: 24px;
+    margin: 0 5px 0 0;
+    width: 24px;
+}
+#content i.sina{background-position: left -34px;}
+#content i.taobao{background-position: left -72px;}
+#content i.alipay{background-position: left -110px;}
+#content i.qq{background-position: left -top;}
+.unlogin_side .reg_with a.more span{
+	font-size: 12px;
+}
+#content ul.more_with li{
+	 float: left;
+    height: 24px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    overflow: hidden;
+    width: 40px;
+}
+#content ul.more_with li a{
+	float: left;
+	display: block;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	background: url(icon-s.png) left top no-repeat;
+}
+#content ul.more_with li a.twitter{
+	background-position: left -276px;
+}
+#content ul.more_with li a.facebook{
+	background-position: left -212px;
+}
+#content ul.more_with li a.souhu{
+	background-position: left -168px;
+}
+#content ul.more_with li a.go163{
+	background-position: left -189px;
+}
+#content ul.more_with li a.tx{
+	background-position: left -254px;
+}
+#content ul.more_with li a.google{
+	background-position: left -63px;
+}
+#content ul.more_with li a.msn{
+	background-position: left -107px;
+}
+#content ul.more_with li a.tianya{
+	background-position: left -233px;
+}
+#content ul.more_with li a.douban{
+	background-position: left -41px;
+}
+#content ul.more_with li a.yahoo{
+	background-position: left -299px;
+}
+#content ul.more_with li a.baidu{
+	background-position: left -20px;
+}
+#content ul.more_with li a.shengda{
+	background-position: left -147px;
+}
+#content ul.more_with li a.kaixin{
+	background-position: left -85px;
+}
+#content ul.more_with li a.renren{
+	background-position: left -128px;
+}
+#content ul.more_with li a.go360{
+	background-position: left top;
+}
+#content i.more{background:url(icon-s.png) left bottom no-repeat;width:16px;height:16px;}
+#content ul.more_with li a:hover{
+	width:24px;
+	height: 24px;
+	background: url(icon-24.png) left top no-repeat;
+}
+#content ul.more_with li a.twitter:hover{
+	background-position: left -174px;
+}
+#content ul.more_with li a.facebook:hover{
+	background-position: left -203px;
+}
+#content ul.more_with li a.souhu:hover{
+	background-position: left -116px;
+}
+#content ul.more_with li a.go163:hover{
+	background-position: left -145px;
+}
+#content ul.more_with li a.tx:hover{
+	background-position: left top;
+}
+#content ul.more_with li a.google:hover{
+	background-position: left -231px;
+}
+#content ul.more_with li a.msn:hover{
+	background-position: left -260px;
+}
+#content ul.more_with li a.tianya:hover{
+	background-position: left -406px;
+}
+#content ul.more_with li a.douban:hover{
+	background-position: left -87px;
+}
+#content ul.more_with li a.yahoo:hover{
+	background-position: left -290px;
+}
+#content ul.more_with li a.baidu:hover{
+	background-position: left -348px;
+}
+#content ul.more_with li a.shengda:hover{
+	background-position: left -319px;
+}
+#content ul.more_with li a.kaixin:hover{
+	background-position: left -58px;
+}
+#content ul.more_with li a.renren:hover{
+	background-position: left -29px;
+}
+#content ul.more_with li a.go360:hover{
+	background-position: left -376px;
+}
