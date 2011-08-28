@@ -19,7 +19,13 @@ public class UserDao {
     }
 
     public void queryList(DataGridModel datagrid, User user) {
-        StringBuilder sb = new StringBuilder();
+        //        select SQL_CALC_FOUND_ROWS * from tb_user LIMIT 0,2;
+        //        select FOUND_ROWS();
+
+        StringBuilder sb = new StringBuilder("select * from user where 1=1 ");
+        int start = datagrid.getRows() * (datagrid.getPage() - 1);
+        int end = start + datagrid.getRows();
+        sb.append("limit ").append(start).append(",").append(end);
 
     }
 
