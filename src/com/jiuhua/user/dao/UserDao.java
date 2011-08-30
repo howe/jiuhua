@@ -38,12 +38,8 @@ public class UserDao extends HibernateDaoSupport {
             criteria.setProjection(null);
             criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
-            //            criteria.setFirstResult(page.getFirst() - 1);
-            //            criteria.setMaxResults(page.getFirst() + page.getPageSize() - 1);
-
-            criteria.setFirstResult(page.getFirst());
-            criteria.setMaxResults(page.getFirst() + page.getPageSize());
-
+            criteria.setFirstResult(page.getFirst() - 1);
+            criteria.setMaxResults(page.getFirst() + page.getPageSize() - 1);
             page.setTotalCount(totalRows);
         } else {// 不分页
             page = new Page<User>();
