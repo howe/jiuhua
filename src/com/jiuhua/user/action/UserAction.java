@@ -37,4 +37,5 @@ public class UserAction {
     public Map<String, Object> queryUserList(Page<User> page, User user) {
         return userService.queryUserList(page, user);
     }
+
 }

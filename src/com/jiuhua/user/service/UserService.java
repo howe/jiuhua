@@ -35,6 +35,6 @@ public class UserService {
         }
         map.put("total", "");
         map.put("rows", "");
-        return null;
+        return map;
     }
 }
