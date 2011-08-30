@@ -1,5 +1,6 @@
 package com.jiuhua.user.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -7,7 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jiuhua.comm.DataGridModel;
+import com.jiuhua.comm.Page;
 import com.jiuhua.user.dao.UserDao;
 import com.jiuhua.user.entity.User;
 
@@ -18,14 +19,22 @@ public class UserService {
     private UserDao dao;
 
     /**
-     * 分页查询用户
+     * 分页查询用户列表
      * 
-     * @param datagrid
+     * @param page
      * @param user
      * @return
      */
-    public Map<String, Object> queryList(DataGridModel datagrid, User user) {
-        dao.queryList(datagrid, user);
+    public Map<String, Object> queryUserList(Page<User> page, User user) {
+        page = dao.queryUserList(page, user);
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (!page.getResult().isEmpty()) {
+            map.put("total", page.getTotalCount());
+            map.put("rows", page.getResult());
+            return map;
+        }
+        map.put("total", "");
+        map.put("rows", "");
         return null;
     }
 }

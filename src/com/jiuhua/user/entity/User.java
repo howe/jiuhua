@@ -1,11 +1,21 @@
 package com.jiuhua.user.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 用户类 所有属性名全部小写
  * 
  * @author yangq
  */
+@Entity
+@Table(name = "tb_user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int    id;      // 主键
     private String username; // 账户名称
     private String realname; // 真实姓名
