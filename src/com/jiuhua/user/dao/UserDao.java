@@ -3,24 +3,17 @@ package com.jiuhua.user.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
+import com.jiuhua.comm.MyHibernateDaoSupport;
 import com.jiuhua.comm.Page;
 import com.jiuhua.user.entity.User;
 
 @Repository
-public class UserDao extends HibernateDaoSupport {
-
-    @Autowired
-    public void setSessionFactory0(SessionFactory sessionFactory) {
-        super.setSessionFactory(sessionFactory);
-    }
+public class UserDao extends MyHibernateDaoSupport {
 
     /**
      * 分页查询用户列表
@@ -38,17 +31,12 @@ public class UserDao extends HibernateDaoSupport {
             criteria.setProjection(null);
             criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
-            //            criteria.setFirstResult(page.getFirst() - 1);
-            //            criteria.setMaxResults(page.getFirst() + page.getPageSize() - 1);
-
-            criteria.setFirstResult(page.getFirst());
-            criteria.setMaxResults(page.getFirst() + page.getPageSize());
-
+            criteria.setFirstResult(page.getFirst() - 1);
+            criteria.setMaxResults(page.getFirst() + page.getPageSize() - 1);
             page.setTotalCount(totalRows);
         } else {// 不分页
             page = new Page<User>();
         }
-
         criteria.addOrder(Order.asc("username"));// 根据人员姓名降序排序
 
         List<User> list = criteria.list();
