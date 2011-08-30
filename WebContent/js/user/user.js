@@ -88,31 +88,25 @@ $(function() {
 					rowspan : 3,
 					width : 190,
 					formatter : function(value, rec) {
-						var select = '<a class="l-btn l-btn-plain" style="float:left;" href="javascript: selectUser(\''
+						var stop = '<a class="l-btn l-btn-plain" style="float:left;" href="javascript: stopUser(\''
 								+ rec.id + '\');">';
-						select += ' <span class="l-btn-left" style="float: left;">';
-						select += ' <span class="l-btn-text ryxx" style="padding-left: 20px;">查看</span>';
-						select += ' </span>';
-						select += ' </a>';
+						stop += ' <span class="l-btn-left" style="float: left;">';
+						stop += ' <span class="l-btn-text user" style="padding-left: 20px;">停用</span>';
+						stop += ' </span>';
+						stop += ' </a>';
 						var edit = '<a class="l-btn l-btn-plain" style="float:left;" href="javascript: editUser(\''
 								+ rec.id + '\');">';
 						edit += ' <span class="l-btn-left" style="float: left;">';
-						edit += ' <span class="l-btn-text ryxx_edit" style="padding-left: 20px;">修改</span>';
+						edit += ' <span class="l-btn-text user_edit" style="padding-left: 20px;">修改</span>';
 						edit += ' </span>';
 						edit += ' </a>';
-						var role = '<a class="l-btn l-btn-plain" style="float:left;" href="javascript: rolesSelectTree(\'ALL\');">';
-						role += ' <span class="l-btn-left" style="float: left;">';
-						role += ' <span class="l-btn-text xtjs_edit" style="padding-left: 20px;">角色设置</span>';
-						role += ' </span>';
-						role += ' </a>';
-						// return edit+role;
-						var del = '<a class="l-btn l-btn-plain" style="float:left;" href="javascript: sure(\''
+						var del = '<a class="l-btn l-btn-plain" style="float:left;" href="javascript: delUser(\''
 								+ rec.id + '\');">';
 						del += ' <span class="l-btn-left" style="float: left;">';
-						del += ' <span class="l-btn-text ryxx_del" style="padding-left: 20px;">删除</span>';
+						del += ' <span class="l-btn-text user_del" style="padding-left: 20px;">删除</span>';
 						del += ' </span>';
 						del += ' </a>';
-						return select + edit + del;
+						return stop + edit + del;
 					}
 				}]],
 		toolbar : [{
