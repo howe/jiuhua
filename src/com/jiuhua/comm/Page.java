@@ -10,13 +10,10 @@ import com.google.common.collect.Lists;
  * 与具体ORM实现无关的分页参数及查询结果封装. 注意所有序号从1开始.
  * 
  * @param <T> Page中记录的类型.
- * @author calvin
+ * @author yangq
+ * @version 2011.8.30
  */
 public class Page<T> {
-    /** 请勿删除下面两行注释内容 */
-    //    start = pageSize * (pageNum - 1);
-    //    end = start + pageSize;
-
     //-- 公共变量 --//
     public static final String ASC        = "asc";
     public static final String DESC       = "desc";
@@ -24,13 +21,22 @@ public class Page<T> {
     //-- 分页参数 --//
     protected int              pageNo     = 1;
     protected int              pageSize   = -1;
-    protected String           orderBy    = null;
-    protected String           order      = null;
+    protected String           orderBy    = null;                // 排序字段
+    protected String           order      = null;                // 排序规则
     protected boolean          autoCount  = true;
+
+    //-- easyui datagrid 特殊分页参数 --/
+    private int                page;                             //当前页,名字必须为page
+    private int                rows;                             //每页大小,名字必须为rows
+    private String             sort;                             //排序字段
 
     //-- 返回结果 --//
     protected List<T>          result     = Lists.newArrayList();
     protected long             totalCount = -1;
+
+    /** 请勿删除下面两行备注内容 */
+    //    start = pageSize * (pageNum - 1)+1;
+    //    end = start + pageSize;
 
     //-- 构造函数 --//
     public Page() {
@@ -260,6 +266,34 @@ public class Page<T> {
         } else {
             return pageNo;
         }
+    }
+
+    //-- 2011.8.30 add for easyui datagrid (yangq) --//
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+        this.pageNo = page;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+        this.pageSize = rows;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+        this.orderBy = sort;
     }
 
 }

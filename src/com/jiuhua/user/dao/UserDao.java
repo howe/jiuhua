@@ -1,32 +1,62 @@
 package com.jiuhua.user.dao;
 
-import javax.sql.DataSource;
+import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
-import com.jiuhua.comm.DataGridModel;
+import com.jiuhua.comm.Page;
 import com.jiuhua.user.entity.User;
 
 @Repository
-public class UserDao {
-    private SimpleJdbcTemplate simpleJdbcTemplate;
+public class UserDao extends HibernateDaoSupport {
 
     @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.simpleJdbcTemplate = new SimpleJdbcTemplate(dataSource);
+    public void setSessionFactory0(SessionFactory sessionFactory) {
+        super.setSessionFactory(sessionFactory);
     }
 
-    public void queryList(DataGridModel datagrid, User user) {
-        //        select SQL_CALC_FOUND_ROWS * from tb_user LIMIT 0,2;
-        //        select FOUND_ROWS();
+    /**
+     * 分页查询用户列表
+     * 
+     * @param page
+     * @param user
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public Page<User> queryUserList(Page<User> page, User user) {
+        Criteria criteria = this.getSession().createCriteria(User.class);
 
-        StringBuilder sb = new StringBuilder("select * from user where 1=1 ");
-        int start = datagrid.getRows() * (datagrid.getPage() - 1);
-        int end = start + datagrid.getRows();
-        sb.append("limit ").append(start).append(",").append(end);
+        if (page != null) {// 分页
+            int totalRows = ((Long) criteria.setProjection(Projections.rowCount()).uniqueResult()).intValue();
+            criteria.setProjection(null);
+            criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
 
+            //            criteria.setFirstResult(page.getFirst() - 1);
+            //            criteria.setMaxResults(page.getFirst() + page.getPageSize() - 1);
+
+            criteria.setFirstResult(page.getFirst());
+            criteria.setMaxResults(page.getFirst() + page.getPageSize());
+
+            page.setTotalCount(totalRows);
+        } else {// 不分页
+            page = new Page<User>();
+        }
+
+        criteria.addOrder(Order.asc("username"));// 根据人员姓名降序排序
+
+        List<User> list = criteria.list();
+        if (!list.isEmpty()) {
+            page.setResult(list);
+        }
+
+        return page;
     }
 
 }

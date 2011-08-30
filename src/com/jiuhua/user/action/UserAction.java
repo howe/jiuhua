@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jiuhua.comm.DataGridModel;
+import com.jiuhua.comm.Page;
 import com.jiuhua.user.entity.User;
 import com.jiuhua.user.service.UserService;
 
@@ -30,11 +30,11 @@ public class UserAction {
     }
 
     /**
-     * 分页查询用户
+     * 分页查询用户列表
      */
-    @RequestMapping(value = "/queryAllUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/queryAllUser", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> queryList(DataGridModel datagrid, User user) {
-        return userService.queryList(datagrid, user);
+    public Map<String, Object> queryUserList(Page<User> page, User user) {
+        return userService.queryUserList(page, user);
     }
 }

@@ -7,7 +7,7 @@ $(function() {
 		nowrap : false,
 		striped : true,
 		border : false,
-		// url : '',
+		url : 'user/queryAllUser.action',
 		// queryParams : {},
 		sortName : '',
 		sortOrder : 'ASC',// DESC 降序，ASC升序
@@ -32,6 +32,10 @@ $(function() {
 					title : '真实姓名',
 					width : 65
 				}, {
+					field : 'sex',
+					title : '性别',
+					width : 65
+				}, {
 					field : 'idcard',
 					title : '身份证号',
 					width : 65
@@ -44,22 +48,22 @@ $(function() {
 					title : '是否验证',
 					width : 70,
 					formatter : function(value, rec) {
-						for (var i = 0; i < P01_RYXZ.length; i++) {
-							if (P01_RYXZ[i].z == value) {
-								return P01_RYXZ[i].text;
-							}
-						}
+						// for (var i = 0; i < P01_RYXZ.length; i++) {
+						// if (P01_RYXZ[i].z == value) {
+						// return P01_RYXZ[i].text;
+						// }
+						// }
 					}
 				}, {
 					field : 'email',
 					title : '电子邮箱',
 					width : 70,
 					formatter : function(value, rec) {
-						for (var i = 0; i < P01_RYZT.length; i++) {
-							if (P01_RYZT[i].z == value) {
-								return P01_RYZT[i].text;
-							}
-						}
+						// for (var i = 0; i < P01_RYZT.length; i++) {
+						// if (P01_RYZT[i].z == value) {
+						// return P01_RYZT[i].text;
+						// }
+						// }
 					}
 				}, {
 					field : 'identify',
@@ -70,13 +74,13 @@ $(function() {
 					title : '账户状态',
 					width : 100,
 					formatter : function(value, rec) {
-						var s = value.replace(/,/g, "");
-						var lastIndex = value.lastIndexOf(',') + 1;
-						var ss = value.substring(lastIndex);
+						// var s = value.replace(/,/g, "");
+						// var lastIndex = value.lastIndexOf(',') + 1;
+						// var ss = value.substring(lastIndex);
 						// if(ss.length>5){
 						// ss=ss.substring(0, 5)+"...";
 						// }
-						return "<a title='" + s + "'>" + ss + "</a>";
+						// return "<a title='" + s + "'>" + ss + "</a>";
 					}
 				}, {
 					field : 'action',
@@ -129,5 +133,5 @@ $(function() {
 		pagination : true,
 		rownumbers : true
 	});
-	
+
 });
