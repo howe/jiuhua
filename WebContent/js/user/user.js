@@ -1,3 +1,7 @@
+/** 新增用户 */
+function addUser() {
+	$('#win_user').window({maximizable:false}).window('setTitle','新增用户').window('open');
+}
 
 /** 程序初始化 */
 $(function() {

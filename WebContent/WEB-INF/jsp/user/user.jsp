@@ -25,5 +25,57 @@
 			</div>
 		</div>
 	</div>
+	
+	<%-- 新增用户窗口 --%>
+	<div id="win_user" class="easyui-window" closed="true" modal="true" title="用户管理" iconCls="ryxx" style="width: 520px; height: 260px; padding: 5px; background: #fafafa;">
+		<div class="easyui-layout" fit="true">
+			<div region="center" style="padding: 10px; background: #fff; border: 1px solid #ccc;overflow: hidden;">
+				<form id="addUserForm" action="" method="post">
+					<input type="hidden" id="id"/><!-- 用户id -->
+					<table>
+						<tr>
+							<td align="right">账户名称：</td>
+							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" validType="length[2,50]"/><font color="red">*</font></td>
+						</tr>
+						<tr>
+							<td align="right">账户权限：</td>
+							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" /><font color="red">*</font></td>
+							<td align="right">账户状态：</td>
+							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" /><font color="red">*</font></td>
+						</tr>
+						<tr>
+							<td colspan="5"><hr/></td>
+						</tr>
+						<tr>
+							<td align="right">真实姓名：</td>
+							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" validType="length[2,50]"/><font color="red">*</font></td>
+							<td align="right">性别：</td>
+							<td>
+								<input id="content.field5" type="radio" value="在职" name="ryzt" checked="checked"/>男 
+								<input type="radio" value="离职" name="ryzt" />女
+							</td>
+						</tr>
+						<tr>
+							<td align="right">身份证号：</td>
+							<td><input id="content.field7" type="text" class="easyui-validatebox" required="true" validType="checkMobile[]"/><font id="sjchOk" color="blue" style="display: none;">√</font><font id="sjchError" color="blue" style="display: none;">×</font></td>
+							<td align="right">电子邮箱：</td>
+							<td><input id="content.field7" type="text" class="easyui-validatebox" required="true" validType="checkMobile[]"/><font id="sjchOk" color="blue" style="display: none;">√</font><font id="sjchError" color="blue" style="display: none;">×</font></td>
+						</tr>
+						<tr>
+							<td align="right">手机号码：</td>
+							<td><input id="content.field6" type="text" onblur="trafficNumber(this)"/></td>
+							<td align="right">是否验证：</td>
+							<td><input id="content.telephone" type="text" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
+				<a class="easyui-linkbutton" iconCls="icon-ok" href="javascript:void(0)" onclick="saveUser()">保存</a>
+				<a class="easyui-linkbutton" iconCls="icon-reset" href="javascript:void(0)" onclick="resetWin()">重置</a>
+				<a class="easyui-linkbutton" iconCls="icon-cancel" href="javascript:void(0)" onclick="cancel()">取消</a>
+			</div>
+		</div>
+		</div>
 </body>
 </html>
