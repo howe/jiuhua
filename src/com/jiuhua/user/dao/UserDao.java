@@ -64,14 +64,19 @@ public class UserDao extends MyHibernateDaoSupport {
     }
 
     /**
-     * 删除用户
+     * 删除用户 为方便测试，暂未作软删除
      */
-    public boolean delUser(int id) {
-        Session session = this.getSession();
-        User user = (User) session.get(User.class, id);
-        if (user != null) {
+    public boolean delUser(String ids) {
+        if (ids != null && !ids.trim().equalsIgnoreCase("")) {
+            Session session = this.getSession();
+            String[] tmp = ids.split(",");
             Transaction ts = session.beginTransaction();
-            session.delete(user);
+            for (String s : tmp) {
+                User user = (User) session.get(User.class, Integer.valueOf(s));
+                if (user != null) {
+                    session.delete(user);
+                }
+            }
             ts.commit();
             return true;
         }

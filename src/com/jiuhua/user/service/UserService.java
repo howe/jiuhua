@@ -54,9 +54,9 @@ public class UserService {
     /**
      * 删除用户
      */
-    public Map<String, Object> delUser(int id) {
+    public Map<String, Object> delUser(String ids) {
         Map<String, Object> map = new HashMap<String, Object>();
-        if (dao.delUser(id)) {
+        if (dao.delUser(ids)) {
             map.put("success", "true");
             return map;
         }

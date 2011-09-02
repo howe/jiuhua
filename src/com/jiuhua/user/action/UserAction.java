@@ -52,8 +52,8 @@ public class UserAction {
      */
     @RequestMapping(value = "/delUser", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> delUser(int id) {
-        return service.delUser(id);
+    public Map<String, Object> delUser(String ids) {
+        return service.delUser(ids);
     }
 
 }
