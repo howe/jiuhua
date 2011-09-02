@@ -35,7 +35,7 @@ function delUser(id) {
 				timeout : 3000,
 				url : contextPath + delUserUrl,
 				data : {
-					id : id
+					ids : id
 				},
 				success : function(data) {
 					$('#tt').datagrid('reload');
@@ -165,7 +165,14 @@ $(function() {
 					text : '批量删除',
 					iconCls : 'user_del',
 					handler : function() {
-						sure();
+						var selects = $('#tt').datagrid('getSelections');
+						var tmp = [];
+						for (var i = 0; i < selects.length; i++) {
+							tmp.push(selects[i].id);
+						}
+						if (tmp.length > 0) {
+							delUser(tmp.join(','));
+						}
 					}
 				}],
 		pagination : true,
