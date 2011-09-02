@@ -17,7 +17,7 @@ import com.jiuhua.user.service.UserService;
 @RequestMapping("/user")
 public class UserAction {
     @Autowired
-    UserService userService;
+    UserService service;
 
     /**
      * 后台用户管理界面
@@ -35,7 +35,25 @@ public class UserAction {
     @RequestMapping(value = "/queryAllUser", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> queryUserList(Page<User> page, User user) {
-        return userService.queryUserList(page, user);
+        return service.queryUserList(page, user);
+    }
+
+    /**
+     * 保存用户
+     */
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> saveUser(User user) {
+        return service.saveUser(user);
+    }
+
+    /**
+     * 删除用户
+     */
+    @RequestMapping(value = "/delUser", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> delUser(String ids) {
+        return service.delUser(ids);
     }
 
 }

@@ -31,41 +31,55 @@
 		<div class="easyui-layout" fit="true">
 			<div region="center" style="padding: 10px; background: #fff; border: 1px solid #ccc;overflow: hidden;">
 				<form id="addUserForm" action="" method="post">
-					<input type="hidden" id="id"/><!-- 用户id -->
+					<input type="hidden" id="id" name="id" value="0"/><!-- 用户id -->
 					<table>
 						<tr>
 							<td align="right">账户名称：</td>
-							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" validType="length[2,50]"/><font color="red">*</font></td>
+							<td><input id="username" name="username" type="text" class="easyui-validatebox" required="true" validType="length[2,50]"/><font color="red">*</font></td>
 						</tr>
 						<tr>
 							<td align="right">账户权限：</td>
-							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" /><font color="red">*</font></td>
+							<td>
+								<select id="identify" name="identify" class="easyui-combobox" style="width: 155px; ">
+									<option value="0">普通用户</option>
+									<option value="1">VIP用户</option>
+									<option value="2">管理员</option>
+								</select>
+							</td>
 							<td align="right">账户状态：</td>
-							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" /><font color="red">*</font></td>
+							<td>
+								<select id="status" name="status" class="easyui-combobox" style="width: 155px; ">
+									<option value="0">禁止使用</option>
+									<option value="1" selected="selected">正常使用</option>
+								</select>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="5"><hr/></td>
 						</tr>
 						<tr>
 							<td align="right">真实姓名：</td>
-							<td><input id="content.name" type="text" class="easyui-validatebox" required="true" validType="length[2,50]"/><font color="red">*</font></td>
-							<td align="right">性别：</td>
+							<td><input id="realname" name="realname" type="text" /></td>
+							<td align="right">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</td>
 							<td>
-								<input id="content.field5" type="radio" value="在职" name="ryzt" checked="checked"/>男 
-								<input type="radio" value="离职" name="ryzt" />女
+								<input type="radio" value="男" name="sex" checked="checked"/>男 
+								<input type="radio" value="女" name="sex" />女
 							</td>
 						</tr>
 						<tr>
 							<td align="right">身份证号：</td>
-							<td><input id="content.field7" type="text" class="easyui-validatebox" required="true" validType="checkMobile[]"/><font id="sjchOk" color="blue" style="display: none;">√</font><font id="sjchError" color="blue" style="display: none;">×</font></td>
+							<td><input id="idcard" name="idcard" type="text" /></td>
 							<td align="right">电子邮箱：</td>
-							<td><input id="content.field7" type="text" class="easyui-validatebox" required="true" validType="checkMobile[]"/><font id="sjchOk" color="blue" style="display: none;">√</font><font id="sjchError" color="blue" style="display: none;">×</font></td>
+							<td><input id="email" name="email" type="text" /></td>
 						</tr>
 						<tr>
 							<td align="right">手机号码：</td>
-							<td><input id="content.field6" type="text" onblur="trafficNumber(this)"/></td>
+							<td><input id="mobinum" name="mobinum" type="text" /></td>
 							<td align="right">是否验证：</td>
-							<td><input id="content.telephone" type="text" /></td>
+							<td>
+								<input type="radio" value="是" name="isverify" />是 
+								<input type="radio" value="否" name="isverify" checked="checked"/>否
+							</td>
 						</tr>
 					</table>
 				</form>

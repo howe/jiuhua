@@ -1,6 +1,46 @@
+var saveUserUrl = '/user/saveUser.action';// 保存用户地址
+var delUserUrl = '/user/delUser.action';// 删除用户地址
+
 /** 新增用户 */
 function addUser() {
-	$('#win_user').window({maximizable:false}).window('setTitle','新增用户').window('open');
+	$('#win_user').form('clear');
+	$('#id').val(0);
+	$('#win_user').window({
+				maximizable : false
+			}).window('setTitle', '新增用户').window('open');
+}
+
+/** 保存用户 */
+function saveUser() {
+	$.ajax({
+				async : true,// required
+				type : 'post',
+				dataType : 'json',
+				timeout : 3000,
+				url : contextPath + saveUserUrl,
+				data : $('#addUserForm').serializeObject(),
+				success : function(data) {
+					$('#tt').datagrid('reload');
+					$('#win_user').window('close');
+				}
+			});
+}
+
+/** 删除用户 */
+function delUser(id) {
+	$.ajax({
+				async : true,// required
+				type : 'post',
+				dataType : 'json',
+				timeout : 3000,
+				url : contextPath + delUserUrl,
+				data : {
+					ids : id
+				},
+				success : function(data) {
+					$('#tt').datagrid('reload');
+				}
+			});
 }
 
 /** 程序初始化 */
@@ -125,7 +165,14 @@ $(function() {
 					text : '批量删除',
 					iconCls : 'user_del',
 					handler : function() {
-						sure();
+						var selects = $('#tt').datagrid('getSelections');
+						var tmp = [];
+						for (var i = 0; i < selects.length; i++) {
+							tmp.push(selects[i].id);
+						}
+						if (tmp.length > 0) {
+							delUser(tmp.join(','));
+						}
 					}
 				}],
 		pagination : true,

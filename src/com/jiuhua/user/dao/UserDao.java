@@ -3,6 +3,8 @@ package com.jiuhua.user.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
@@ -45,6 +47,40 @@ public class UserDao extends MyHibernateDaoSupport {
         }
 
         return page;
+    }
+
+    /**
+     * 保存用户
+     */
+    public boolean saveUser(User user) {
+        if (user != null) {
+            Session session = this.getSession();
+            Transaction ts = session.beginTransaction();
+            session.save(user);
+            ts.commit();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 删除用户 为方便测试，暂未作软删除
+     */
+    public boolean delUser(String ids) {
+        if (ids != null && !ids.trim().equalsIgnoreCase("")) {
+            Session session = this.getSession();
+            String[] tmp = ids.split(",");
+            Transaction ts = session.beginTransaction();
+            for (String s : tmp) {
+                User user = (User) session.get(User.class, Integer.valueOf(s));
+                if (user != null) {
+                    session.delete(user);
+                }
+            }
+            ts.commit();
+            return true;
+        }
+        return false;
     }
 
 }

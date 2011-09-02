@@ -37,4 +37,30 @@ public class UserService {
         map.put("rows", "");
         return map;
     }
+
+    /**
+     * 保存用户
+     */
+    public Map<String, Object> saveUser(User user) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (dao.saveUser(user)) {
+            map.put("success", "true");
+            return map;
+        }
+        map.put("success", "false");
+        return map;
+    }
+
+    /**
+     * 删除用户
+     */
+    public Map<String, Object> delUser(String ids) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (dao.delUser(ids)) {
+            map.put("success", "true");
+            return map;
+        }
+        map.put("success", "false");
+        return map;
+    }
 }
