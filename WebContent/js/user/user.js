@@ -3,8 +3,7 @@ var delUserUrl = '/user/delUser.action';// 删除用户地址
 
 /** 新增用户 */
 function addUser() {
-	$('#win_user').form('clear');
-	$('#id').val(0);
+	resetWin();
 	$('#win_user').window({
 				maximizable : false
 			}).window('setTitle', '新增用户').window('open');
@@ -24,6 +23,17 @@ function saveUser() {
 					$('#win_user').window('close');
 				}
 			});
+}
+
+/** 清空用户管理窗口填写数据并恢复默认值 */
+function resetWin() {
+	$('#win_user').form('clear');
+	$('#id').val(0);
+}
+
+/** 关闭用户管理窗口 */
+function cancel() {
+	$('#win_user').window('close');
 }
 
 /** 删除用户 */
