@@ -35,7 +35,6 @@ create table tb_datadictionarytype
 (
    id                   int(11) not null auto_increment comment '表主键',
    name                 varchar(30) comment '字典类型',
-   value                varchar(30) comment '字典值',
    sequenceNum          int(11) comment '排序号',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
