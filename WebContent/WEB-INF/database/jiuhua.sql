@@ -2,7 +2,6 @@
 CREATE DATABASE jiuhua
 USE jiuhua;
 
-
 -- ----------------------------
 -- Table structure for `tb_user` 用户表
 -- ----------------------------
@@ -27,3 +26,21 @@ create table tb_user
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tb_datadictionary` 数据字典表
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_datadictionary`;
+create table tb_datadictionary
+(
+   id                   int(11) not null AUTO_INCREMENT comment '数据字典表主键',
+   type                 varchar(30) comment '数据字典类型',
+   name                 varchar(30) comment '数据字典名称',
+   value                varchar(30) comment '数据字典值',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tb_datadictionary
+-- ----------------------------
+
