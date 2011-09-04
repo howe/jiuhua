@@ -28,6 +28,22 @@ create table tb_user
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `tb_datadictionarytype` 数据字典类型表
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_datadictionarytype`;
+create table tb_datadictionarytype
+(
+   id                   int(11) not null auto_increment comment '表主键',
+   name                 varchar(30) comment '类型名称',
+   value                varchar(30) comment '类型值',
+   primary key (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tb_datadictionarytype
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `tb_datadictionary` 数据字典表
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_datadictionary`;
