@@ -26,7 +26,7 @@
 		</div>
 	</div>
 	
-	<%-- 新增用户窗口 --%>
+	<%-- 用户窗口 --%>
 	<div id="win_user" class="easyui-window" closed="true" modal="true" title="用户管理" iconCls="ryxx" style="width: 520px; height: 260px; padding: 5px; background: #fafafa;">
 		<div class="easyui-layout" fit="true">
 			<div region="center" style="padding: 10px; background: #fff; border: 1px solid #ccc;overflow: hidden;">
