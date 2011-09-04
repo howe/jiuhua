@@ -83,6 +83,22 @@
 	background: url('icons/user_edit.gif') no-repeat;
 }
 
+.datadictionary {
+	background: url('icons/datadictionary.gif') no-repeat;
+}
+
+.datadictionary_add {
+	background: url('icons/datadictionary_add.gif') no-repeat;
+}
+
+.datadictionary_del {
+	background: url('icons/datadictionary_del.gif') no-repeat;
+}
+
+.datadictionary_edit {
+	background: url('icons/datadictionary_edit.gif') no-repeat;
+}
+
 .SearchArea {
 	padding: 5px 0px 5px 20px;
 	margin: 10px;
