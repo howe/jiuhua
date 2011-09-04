@@ -63,6 +63,8 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.connection.release_mode">after_statement</prop>
+				<prop key="dynamic-insert">true</prop>
+				<prop key="dynamic-update">true</prop>
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.jiuhua.*" />
