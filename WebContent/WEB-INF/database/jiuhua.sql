@@ -34,8 +34,9 @@ DROP TABLE IF EXISTS `tb_datadictionarytype`;
 create table tb_datadictionarytype
 (
    id                   int(11) not null auto_increment comment '表主键',
-   name                 varchar(30) comment '类型名称',
-   value                varchar(30) comment '类型值',
+   name                 varchar(30) comment '字典类型',
+   value                varchar(30) comment '字典值',
+   sequenceNum          int(11) comment '排序号',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -49,11 +50,12 @@ create table tb_datadictionarytype
 DROP TABLE IF EXISTS `tb_datadictionary`;
 create table tb_datadictionary
 (
-   id                   int(11) not null AUTO_INCREMENT comment '数据字典表主键',
-   type                 varchar(30) comment '数据字典类型',
-   name                 varchar(30) comment '数据字典名称',
-   value                varchar(30) comment '数据字典值',
+   id                   int(11) not null auto_increment comment '表主键',
+   type                 varchar(30) comment '字典类型',
+   name                 varchar(30) comment '字典名称',
+   value                varchar(30) comment '字典值',
    status               varchar(1) comment '数据字典状态 0停用/1启用',
+   sequenceNum          int(11) comment '排序号',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
