@@ -1,61 +1,116 @@
-var saveUserUrl = '/user/saveUser.action';// 保存用户地址
-var delUserUrl = '/user/delUser.action';// 删除用户地址
+var saveDataDictionaryTypeUrl = '/datadict/saveDataDictionaryTpye.action';// 保存数据字典类型地址
+var queryAllDataDictionaryTypeUrl = '/datadict/queryAllDataDictionaryType.action';// 查询所有数据字典类型地址
+var delDataDictionaryTpye = '/datadict/delDataDictionaryTpye.action';// 删除数据字典类型地址
+var queryDataDictionaryTypeById = '/datadict/queryDataDictionaryTypeById.action';// 通过数据字典类型主键查询数据字典类型地址
 
-/** 新增用户 */
-function addUser() {
-	resetWin();
-	$('#win_user').window({
+/** 弹出新增数据字典类型窗口 */
+function addSDatadict() {
+	$('#win_datadictionarytype').window({
 				maximizable : false
-			}).window('setTitle', '新增用户').window('open');
+			}).window('setTitle', '新增数据字典类型').window('open');
 }
 
-/** 保存用户 */
-function saveUser() {
-	$.ajax({
-				async : true,// required
-				type : 'post',
-				dataType : 'json',
-				timeout : 3000,
-				url : contextPath + saveUserUrl,
-				data : $('#addUserForm').serializeObject(),
-				success : function(data) {
-					$('#tt').datagrid('reload');
-					$('#win_user').window('close');
-				}
-			});
-}
-
-/** 清空用户管理窗口填写数据并恢复默认值 */
-function resetWin() {
-	$('#win_user').form('clear');
+/** 重置数据字典类型管理窗口 */
+function reset_win_datadict() {
+	$('#form_datadictionarytype').form('clear');
 	$('#id').val(0);
+	$('#sequencenum').val(0);
 }
 
-/** 关闭用户管理窗口 */
-function cancel() {
-	$('#win_user').window('close');
+/** 关闭数据字典类型管理窗口 */
+function cancel_win_datadict() {
+	reset_win_datadict();
+	$('#win_datadictionarytype').window('close');
 }
 
-/** 删除用户 */
-function delUser(id) {
+/** 保存数据字典类型到数据库 */
+function saveDatadicTionaryType() {
 	$.ajax({
 				async : true,// required
 				type : 'post',
 				dataType : 'json',
 				timeout : 3000,
-				url : contextPath + delUserUrl,
-				data : {
-					ids : id
-				},
+				url : contextPath + saveDataDictionaryTypeUrl,
+				data : $('#form_datadictionarytype').serializeObject(),
 				success : function(data) {
-					$('#tt').datagrid('reload');
+					reset_win_datadict();
+					$('#win_datadictionarytype').window('close');
+					$('#sjzdlx').tree('reload');
 				}
 			});
+}
+
+/** 删除数据字典类型 */
+function delSDatadict() {
+	if ($('#sjzdlx').tree('getChecked').length > 0) {
+		$.messager.confirm('删除确认', '您确认要删除所选择的数据字典类型吗？', function(r) {
+					if (r) {
+						var tmp = [];
+						var selects = $('#sjzdlx').tree('getChecked');
+						for (var i = 0; i < selects.length; i++) {
+							tmp.push(selects[i].id);
+						}
+
+						$.ajax({
+									async : true,// required
+									type : 'post',
+									dataType : 'json',
+									timeout : 3000,
+									url : contextPath + delDataDictionaryTpye,
+									data : {
+										'ids' : tmp.join(',')
+									},
+									success : function(data) {
+										$('#sjzdlx').tree('reload');
+									}
+								});
+					}
+				});
+	} else {
+		$.messager.show({
+					title : '提示',
+					msg : '请选择您要删除的数据字典类型，可多选。',
+					timeout : 5000,
+					showType : 'slide'
+				});
+	}
+}
+
+/** 修改数据字典类型 */
+function editDatadict() {
+	if ($('#sjzdlx').tree('getSelected')) {
+		$('#form_datadictionarytype').json2form({
+					url : contextPath + queryDataDictionaryTypeById,
+					data : {
+						'id' : $('#sjzdlx').tree('getSelected').id
+					}
+				});
+		$('#win_datadictionarytype').window('open');
+	} else {
+		$.messager.show({
+					title : '提示',
+					msg : '请选择您要修改的数据字典类型，单选。',
+					timeout : 5000,
+					showType : 'slide'
+				});
+	}
 }
 
 /** 程序初始化 */
 $(function() {
 	$('#bodyId').css('visibility', 'visible');
+
+	$('#sjzdlx').tree({// 数据字典类型树
+		checkbox : true,
+		url : contextPath + queryAllDataDictionaryTypeUrl,
+		onClick : function(node) {
+			if (node.checked) {
+				$(this).tree('uncheck', node.target);
+			} else {
+				$(this).tree('check', node.target);
+			}
+		}
+	});
 
 	$('#tt').datagrid({
 		nowrap : false,
@@ -89,7 +144,7 @@ $(function() {
 					field : 'value',
 					title : '数据字典值',
 					width : 100
-				},{
+				}, {
 					field : 'status',
 					title : '数据字典状态',
 					width : 100,
