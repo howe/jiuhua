@@ -5,6 +5,7 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<!-- Log4j配置 -->
 	<context-param>
 		<param-name>webAppRootKey</param-name>
 		<param-value>webName.root</param-value>
@@ -23,6 +24,7 @@
 		</listener-class>
 	</listener>
 	
+	<!-- Spring MVC配置 -->
 	<servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
