@@ -5,19 +5,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户管理</title>
 <%@ include file="../comm/head.jsp"%>
-<script type="text/javascript" src="js/user/user.js"></script>
+<script type="text/javascript" src="js/datadictionary/datadictionary.js"></script>
 </head>
 <body class="easyui-layout" style="visibility: hidden" id="bodyId">
 	<%-- 界面布局 --%>
-	<div region="center" iconCls="user" title="后台用户管理" style="overflow: hidden;">
+	<div region="west" iconCls="datadict" title="数据字典类型管理" split="true" style="width:200px; padding:1px; overflow: auto;">
+		<a href="javascript:addSDatadict()" class="easyui-linkbutton" plain="true" iconCls="datadict_add">新增</a>
+		<a href="javascript:delSDatadict()" class="easyui-linkbutton" plain="true" iconCls="datadict_del">删除</a>
+		<a href="javascript:editDatadict()" class="easyui-linkbutton" plain="true" iconCls="datadict_edit">修改</a>
+		<hr/>
+		<!-- 数据字典类型树 -->
+		<ul id="sjzdlx" class="easyui-tree" ></ul>
+	</div>	
+	
+	<div region="center" iconCls="sjzd" title="数据字典管理" style="overflow: hidden;">
 		<div class="easyui-layout" fit="true"> 
 			<div class="easyui-panel" region="north" border="false" style="height: 60px; overflow: hidden;">
 				<div style="clear: both;" class="SearchArea">
-					账户名称：<input id="username" type="text" size="10"/>
-					手机号码：<input id="mobinum" type="text" size="10"/>
-					账户权限：<input id="identify" type="text" size="10"/>
-					账户状态：<input id="status" type="text" size="10"/>
-					<a href="javascript:queryUser()" class="easyui-linkbutton" plain="true" icon="icon-search" >查询</a>
+					字典类型：<input id="type" type="text" size="10"/>
+					字典名称：<input id="name" type="text" size="10"/>
+				<a href="javascript:queryDatadict()" class="easyui-linkbutton" plain="true" icon="icon-search" >查询</a>
 				</div>
 			</div>
 			<div region="center" style="border: 1px;">
