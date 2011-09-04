@@ -37,6 +37,7 @@ create table tb_datadictionary
    type                 varchar(30) comment '数据字典类型',
    name                 varchar(30) comment '数据字典名称',
    value                varchar(30) comment '数据字典值',
+   status               varchar(1) comment '数据字典状态 0停用/1启用',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
