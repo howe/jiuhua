@@ -6,6 +6,7 @@ var queryDataDictionaryTypeById = '/datadict/queryDataDictionaryTypeById.action'
 /** 弹出新增数据字典类型窗口 */
 function addSDatadict() {
 	$('#win_datadictionarytype').window({
+				iconCls : 'datadictionary_add',
 				maximizable : false
 			}).window('setTitle', '新增数据字典类型').window('open');
 }
@@ -79,13 +80,26 @@ function delSDatadict() {
 /** 修改数据字典类型 */
 function editDatadict() {
 	if ($('#sjzdlx').tree('getSelected')) {
+		var checked_array=$('#sjzdlx').tree('getChecked');
+		var target=$('#sjzdlx').tree('getSelected');
+		for(var i=0;i<checked_array.length;i++){
+			if(checked_array[i].id!=target.id){
+				$('#sjzdlx').tree('uncheck',checked_array[i].target);
+			}
+		}
+		
+		// think about selected and checked
+		
 		$('#form_datadictionarytype').json2form({
 					url : contextPath + queryDataDictionaryTypeById,
 					data : {
 						'id' : $('#sjzdlx').tree('getSelected').id
 					}
 				});
-		$('#win_datadictionarytype').window('open');
+		$('#win_datadictionarytype').window({
+					iconCls : 'datadictionary_edit',
+					maximizable : false
+				}).window('setTitle', '修改数据字典类型').window('open');
 	} else {
 		$.messager.show({
 					title : '提示',
