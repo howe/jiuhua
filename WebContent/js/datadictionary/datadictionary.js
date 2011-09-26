@@ -117,13 +117,6 @@ $(function() {
 	$('#sjzdlx').tree({// 数据字典类型树
 		checkbox : true,
 		url : contextPath + queryAllDataDictionaryTypeUrl,
-		onCheck : function(node, checked) {
-			if (checked) {
-				$(this).tree('select', node.target);
-			} else {
-				
-			}
-		},
 		onClick : function(node) {
 			if (node.checked) {
 				$(this).tree('uncheck', node.target);
