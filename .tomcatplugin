@@ -2,7 +2,7 @@
 <tomcatProjectProperties>
     <rootDir>/WebContent</rootDir>
     <exportSource>false</exportSource>
-    <reloadable>false</reloadable>
+    <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
     <updateXml>true</updateXml>
     <warLocation></warLocation>
